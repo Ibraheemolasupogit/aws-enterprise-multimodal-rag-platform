@@ -89,7 +89,7 @@ def run_ingestion(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Pa
 
     documents_output_path = processed_output_dir / "documents.json"
     chunks_output_path = processed_output_dir / "document_chunks.json"
-    report_output_path = PROJECT_ROOT / "reports" / "document_ingestion_report.md"
+    report_output_path = PROJECT_ROOT / "reports" / "sample" / "document_ingestion_report.md"
 
     save_json(processed_documents, documents_output_path)
     save_json(chunks, chunks_output_path)

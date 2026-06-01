@@ -35,8 +35,10 @@ outputs/*
 !outputs/sample/
 !outputs/sample/.gitkeep
 !outputs/sample/retrieval_results.json
+!outputs/sample/retrieval_context.json
 reports/*
 !reports/sample/
 !reports/sample/.gitkeep
 !reports/sample/retrieval_report.md
+!reports/sample/retrieval_context_report.md
 !reports/document_ingestion_report.md

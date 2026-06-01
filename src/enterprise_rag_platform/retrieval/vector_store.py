@@ -59,6 +59,7 @@ class LocalVectorStore:
                     "document_id": record["document_id"],
                     "chunk_id": record["chunk_id"],
                     "source_file": record["source_file"],
+                    "chunk_index": record["chunk_index"],
                     "text": record["text"],
                     "similarity_score": round(similarity_score, 8),
                 }

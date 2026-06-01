@@ -7,11 +7,17 @@ embedding_dimension: 32
 embedding_output_path: data/processed/chunk_embeddings.json
 retrieval_top_k: 3
 retrieval_results_output_path: outputs/sample/retrieval_results.json
+sample_query: How should AI-generated responses handle source material?
+minimum_query_words: 3
+minimum_similarity_score: -1.0
+retrieval_context_output_path: outputs/sample/retrieval_context.json
+retrieval_context_report_path: reports/sample/retrieval_context_report.md
 
 retrieval:
   strategy: local_vector_placeholder
   top_k: 3
   enable_citations: true
+  minimum_similarity_score: -1.0
 
 chunking:
   strategy: local_word_chunking

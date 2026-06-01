@@ -85,6 +85,13 @@ Milestone 3 adds embeddings and a local vector store placeholder:
 - Support basic cosine-similarity search over chunk records
 - Prepare the project for proper RAG retrieval later
 
+Milestone 4 adds retrieval orchestration and citation-ready context building:
+
+- Process user queries into structured query records
+- Convert local vector search results into citation-ready context objects
+- Save retrieval context artifacts for future grounded answer generation
+- Keep the system focused on evidence, not final LLM answers
+
 No answer generation, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
 
 ## Future Scope
@@ -137,16 +144,28 @@ python -m enterprise_rag_platform.embeddings.embedding_runner
 python -m enterprise_rag_platform.retrieval.retrieval_runner
 ```
 
+## Retrieval Orchestration and Citation-Ready Context Builder
+
+Milestone 4 turns a user query into structured retrieval context. The query is normalized and validated, top-k local vector results are filtered by a configurable similarity threshold, and the remaining chunks are formatted with citation labels and metadata.
+
+The default runner writes `outputs/sample/retrieval_context.json` and `reports/sample/retrieval_context_report.md`. It still does not generate final LLM answers.
+
+```bash
+python -m enterprise_rag_platform.retrieval.retrieval_runner
+python -m enterprise_rag_platform.retrieval.retrieval_runner "What does the policy say about data protection?"
+```
+
 ## Milestones
 
 1. Repository setup and architecture foundation
 2. Local ingestion and preprocessing pipeline
 3. Embeddings and local vector store placeholder
-4. Evaluation and benchmarking harness
-5. Guardrails and citation validation
-6. Reporting and dashboard prototypes
-7. AWS architecture implementation plan
-8. Optional cloud deployment with secure configuration
+4. Retrieval orchestration and citation-ready context builder
+5. Evaluation and benchmarking harness
+6. Guardrails and citation validation
+7. Reporting and dashboard prototypes
+8. AWS architecture implementation plan
+9. Optional cloud deployment with secure configuration
 
 ## Definition of Done
 

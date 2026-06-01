@@ -2,86 +2,103 @@
 
 from __future__ import annotations
 
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 from enterprise_rag_platform.ingestion.ingestion_runner import (
     DEFAULT_CONFIG_PATH,
-    PROJECT_ROOT,
     load_config,
     resolve_project_path,
     save_json,
 )
-from enterprise_rag_platform.retrieval.vector_store import LocalVectorStore
+from enterprise_rag_platform.retrieval.retrieval_orchestrator import (
+    run_retrieval_orchestration,
+)
 
 
-SAMPLE_QUERY = "How should AI-generated responses handle source material?"
-
-
-def write_retrieval_report(
+def write_retrieval_context_report(
     output_path: Path,
-    query: str,
-    results: list[dict[str, object]],
+    retrieval_response: dict[str, object],
 ) -> None:
-    """Write a lightweight local retrieval report."""
+    """Write a lightweight local retrieval context report."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    query = retrieval_response["query"]
+    contexts = retrieval_response["contexts"]
+    parameters = retrieval_response["retrieval_parameters"]
 
-    report = f"""# Retrieval Report
+    report = f"""# Retrieval Context Report
 
 Generated at: {generated_at}
 
 ## Query
 
-{query}
+{query["normalized_query"]}
+
+## Parameters
+
+- Top K: {parameters["top_k"]}
+- Minimum similarity score: {parameters["minimum_similarity_score"]}
+- Embedding dimension: {parameters["embedding_dimension"]}
 
 ## Results
 
 """
 
-    for result in results:
+    if not contexts:
+        report += f"{retrieval_response['no_result_reason']}\n"
+    for context in contexts:
         report += (
-            f"- Rank {result['rank']}: `{result['chunk_id']}` from "
-            f"`{result['source_file']}` "
-            f"(score: {result['similarity_score']})\n"
+            f"- Rank {context['rank']}: {context['citation_label']} "
+            f"(score: {context['similarity_score']})\n"
         )
 
     output_path.write_text(report, encoding="utf-8")
 
 
-def run_retrieval(config_path: str | Path = DEFAULT_CONFIG_PATH) -> dict[str, Path | int]:
-    """Run local vector similarity search using a sample query."""
+def run_retrieval(
+    raw_query: str | None = None,
+    config_path: str | Path = DEFAULT_CONFIG_PATH,
+) -> dict[str, Path | int]:
+    """Run local retrieval orchestration and write context artifacts."""
     config = load_config(config_path)
-    embedding_output_path = resolve_project_path(str(config["embedding_output_path"]))
+    query = raw_query or str(config["sample_query"])
+    retrieval_context_output_path = resolve_project_path(
+        str(config["retrieval_context_output_path"])
+    )
+    retrieval_context_report_path = resolve_project_path(
+        str(config["retrieval_context_report_path"])
+    )
     retrieval_results_output_path = resolve_project_path(
         str(config["retrieval_results_output_path"])
     )
-    retrieval_report_path = PROJECT_ROOT / "reports" / "sample" / "retrieval_report.md"
-    embedding_dimension = int(config["embedding_dimension"])
-    retrieval_top_k = int(config["retrieval_top_k"])
 
-    vector_store = LocalVectorStore.from_json(
-        embedding_output_path,
-        embedding_dimension=embedding_dimension,
+    retrieval_response = run_retrieval_orchestration(
+        query,
+        config_path=config_path,
     )
-    results = vector_store.search(SAMPLE_QUERY, top_k=retrieval_top_k)
+    contexts = retrieval_response["contexts"]
 
-    save_json(results, retrieval_results_output_path)
-    write_retrieval_report(retrieval_report_path, SAMPLE_QUERY, results)
+    save_json(retrieval_response, retrieval_context_output_path)
+    save_json(contexts, retrieval_results_output_path)
+    write_retrieval_context_report(retrieval_context_report_path, retrieval_response)
 
     return {
-        "result_count": len(results),
+        "result_count": int(retrieval_response["result_count"]),
+        "retrieval_context_output_path": retrieval_context_output_path,
+        "retrieval_context_report_path": retrieval_context_report_path,
         "retrieval_results_output_path": retrieval_results_output_path,
-        "retrieval_report_path": retrieval_report_path,
     }
 
 
 def main() -> None:
     """Run local retrieval and print output locations."""
-    result = run_retrieval()
+    query = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else None
+    result = run_retrieval(raw_query=query)
     print(f"Retrieved {result['result_count']} results.")
-    print(f"Retrieval results JSON: {result['retrieval_results_output_path']}")
-    print(f"Retrieval report: {result['retrieval_report_path']}")
+    print(f"Retrieval context JSON: {result['retrieval_context_output_path']}")
+    print(f"Retrieval context report: {result['retrieval_context_report_path']}")
 
 
 if __name__ == "__main__":

@@ -3,10 +3,14 @@ input_document_dir: documents/sample
 processed_output_dir: data/processed
 chunk_size_words: 120
 chunk_overlap_words: 20
+embedding_dimension: 32
+embedding_output_path: data/processed/chunk_embeddings.json
+retrieval_top_k: 3
+retrieval_results_output_path: outputs/sample/retrieval_results.json
 
 retrieval:
-  strategy: hybrid_placeholder
-  top_k: 5
+  strategy: local_vector_placeholder
+  top_k: 3
   enable_citations: true
 
 chunking:

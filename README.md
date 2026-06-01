@@ -78,7 +78,14 @@ Milestone 2 adds local document ingestion and preprocessing:
 - Split clean text into configurable overlapping chunks
 - Save local processed outputs for future RAG, evaluation, guardrails, and agent workflows
 
-No embeddings, retrieval, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
+Milestone 3 adds embeddings and a local vector store placeholder:
+
+- Convert document chunks into deterministic local mock embeddings
+- Create a local vector-store-style artifact
+- Support basic cosine-similarity search over chunk records
+- Prepare the project for proper RAG retrieval later
+
+No answer generation, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
 
 ## Future Scope
 
@@ -119,11 +126,22 @@ python -m enterprise_rag_platform.ingestion.ingestion_runner
 
 The pipeline reads from `documents/sample/`, writes processed records to `data/processed/documents.json`, writes chunks to `data/processed/document_chunks.json`, and creates `reports/document_ingestion_report.md`.
 
+## Embeddings and Local Vector Store Placeholder
+
+Milestone 3 converts local document chunks into deterministic mock embeddings and stores them in `data/processed/chunk_embeddings.json`. A lightweight local vector store can load those records, embed a sample query with the same mock logic, and write ranked similarity results to `outputs/sample/retrieval_results.json`.
+
+Run the local embedding and retrieval placeholders with:
+
+```bash
+python -m enterprise_rag_platform.embeddings.embedding_runner
+python -m enterprise_rag_platform.retrieval.retrieval_runner
+```
+
 ## Milestones
 
 1. Repository setup and architecture foundation
 2. Local ingestion and preprocessing pipeline
-3. Mock retrieval and generation interfaces
+3. Embeddings and local vector store placeholder
 4. Evaluation and benchmarking harness
 5. Guardrails and citation validation
 6. Reporting and dashboard prototypes

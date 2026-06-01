@@ -1,0 +1,32 @@
+{
+  "query": {
+    "query_id": "query_dd4cf26342fd8f5d",
+    "raw_query": "How should AI-generated responses handle source material?",
+    "normalized_query": "How should AI-generated responses handle source material?",
+    "character_count": 57,
+    "word_count": 7
+  },
+  "answer": {
+    "answer_id": "answer_13d51cf74d251ad1",
+    "query_id": "query_dd4cf26342fd8f5d",
+    "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+    "used_citations": [
+      "[sample_policy.md | sample_policy_chunk_0000]"
+    ],
+    "generation_mode": "mock_local_generation",
+    "limitations": [
+      "This is deterministic local mock generation.",
+      "The response summarizes retrieved text and is not produced by an LLM.",
+      "No external model, paid API, or AWS service was called."
+    ]
+  },
+  "citation_validation": {
+    "is_valid": true,
+    "missing_citations": [],
+    "unsupported_citations": [],
+    "citation_count": 1,
+    "notes": [
+      "All used citations are supported by retrieved context."
+    ]
+  }
+}

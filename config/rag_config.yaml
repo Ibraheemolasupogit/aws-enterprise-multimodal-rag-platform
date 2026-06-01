@@ -12,6 +12,12 @@ minimum_query_words: 3
 minimum_similarity_score: -1.0
 retrieval_context_output_path: outputs/sample/retrieval_context.json
 retrieval_context_report_path: reports/sample/retrieval_context_report.md
+rag_prompt_output_path: outputs/sample/rag_prompt.json
+generated_answer_output_path: outputs/sample/generated_answer.json
+rag_generation_report_path: reports/sample/rag_generation_report.md
+system_instruction: You are a local mock RAG assistant that answers only from retrieved enterprise context.
+max_context_blocks: 3
+answer_style: concise_grounded_summary
 
 retrieval:
   strategy: local_vector_placeholder
@@ -23,3 +29,8 @@ chunking:
   strategy: local_word_chunking
   chunk_size_words: 120
   chunk_overlap_words: 20
+
+generation:
+  mode: mock_local_generation
+  answer_style: concise_grounded_summary
+  max_context_blocks: 3

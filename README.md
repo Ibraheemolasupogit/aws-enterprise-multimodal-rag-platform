@@ -92,7 +92,14 @@ Milestone 4 adds retrieval orchestration and citation-ready context building:
 - Save retrieval context artifacts for future grounded answer generation
 - Keep the system focused on evidence, not final LLM answers
 
-No answer generation, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
+Milestone 5 adds grounded response preparation and mock RAG generation:
+
+- Assemble retrieval contexts into a RAG prompt
+- Generate a deterministic local mock answer
+- Validate that answer citations come from retrieved context
+- Save prompt, answer, and generation report artifacts
+
+No real LLM answer generation, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
 
 ## Future Scope
 
@@ -155,17 +162,29 @@ python -m enterprise_rag_platform.retrieval.retrieval_runner
 python -m enterprise_rag_platform.retrieval.retrieval_runner "What does the policy say about data protection?"
 ```
 
+## Grounded Response Preparation and Mock RAG Generation
+
+Milestone 5 assembles citation-ready retrieval contexts into a RAG prompt, generates a deterministic local mock answer, and validates citations. The mock generator uses only retrieved context and does not call Amazon Bedrock or any external API.
+
+The runner writes `outputs/sample/rag_prompt.json`, `outputs/sample/generated_answer.json`, and `reports/sample/rag_generation_report.md`.
+
+```bash
+python -m enterprise_rag_platform.generation.rag_runner
+python -m enterprise_rag_platform.generation.rag_runner "What does the policy say about data protection?"
+```
+
 ## Milestones
 
 1. Repository setup and architecture foundation
 2. Local ingestion and preprocessing pipeline
 3. Embeddings and local vector store placeholder
 4. Retrieval orchestration and citation-ready context builder
-5. Evaluation and benchmarking harness
-6. Guardrails and citation validation
-7. Reporting and dashboard prototypes
-8. AWS architecture implementation plan
-9. Optional cloud deployment with secure configuration
+5. Grounded response preparation and mock RAG generation
+6. Evaluation and benchmarking harness
+7. Guardrails and citation validation
+8. Reporting and dashboard prototypes
+9. AWS architecture implementation plan
+10. Optional cloud deployment with secure configuration
 
 ## Definition of Done
 

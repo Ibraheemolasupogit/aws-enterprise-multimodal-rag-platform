@@ -1,0 +1,23 @@
+{
+  "prompt_id": "prompt_7092e94e65ff5177",
+  "query_id": "query_dd4cf26342fd8f5d",
+  "system_instruction": "You are a local mock RAG assistant that answers only from retrieved enterprise context.",
+  "user_query": "How should AI-generated responses handle source material?",
+  "context_blocks": [
+    {
+      "context_id": "query_dd4cf26342fd8f5d_context_0001",
+      "citation_label": "[sample_policy.md | sample_policy_chunk_0000]",
+      "source_file": "sample_policy.md",
+      "chunk_id": "sample_policy_chunk_0000",
+      "text": "Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit logging, and data retention policies. AI Usage AI-generated responses should cite source material where possible, avoid exposing sensitive information, and route uncertain or high-risk cases for human review."
+    }
+  ],
+  "generation_constraints": [
+    "Answer only from the provided context.",
+    "Cite sources using the provided citation labels.",
+    "Say when the evidence is insufficient.",
+    "Avoid unsupported claims and external facts.",
+    "Answer style: concise_grounded_summary"
+  ],
+  "assembled_prompt": "System Instruction:\nYou are a local mock RAG assistant that answers only from retrieved enterprise context.\n\nTask:\nUse the provided context to answer the user query. If the context is insufficient, say so clearly.\n\nContext:\nContext 1\nCitation: [sample_policy.md | sample_policy_chunk_0000]\nSource: sample_policy.md | Chunk: sample_policy_chunk_0000\nText: Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit logging, and data retention policies. AI Usage AI-generated responses should cite source material where possible, avoid exposing sensitive information, and route uncertain or high-risk cases for human review.\n\nQuestion:\nHow should AI-generated responses handle source material?\n\nCitation Rules:\n- Use only citation labels shown in the context.\n- Include citations next to claims they support.\n\nGeneration Constraints:\n- Answer only from the provided context.\n- Cite sources using the provided citation labels.\n- Say when the evidence is insufficient.\n- Avoid unsupported claims and external facts.\n- Answer style: concise_grounded_summary\n\nOutput Format:\nAnswer:\nCitations:\nLimitations:\n"
+}

@@ -1,26 +1,119 @@
-# Planned AWS service mapping. This file is documentation-only for Milestone 1.
-services:
-  model_hosting:
-    - Amazon Bedrock
-    - Amazon SageMaker
-  storage:
+# Documentation-only AWS architecture mapping. No AWS resources are deployed.
+storage:
+  local_component: documents directory
+  local_artifact: documents/raw, documents/processed, reports/sample
+  target_aws_service:
     - Amazon S3
-  retrieval:
-    - Amazon OpenSearch Service
-  orchestration:
+    - AWS KMS
+  production_responsibility: Store raw documents, processed artifacts, evaluation outputs, and reports.
+  future_notes: Use separate encrypted buckets or prefixes for raw, processed, evaluation, and reporting data.
+ingestion:
+  local_component: src/enterprise_rag_platform/ingestion/document_loader.py
+  local_artifact: documents/sample/sample_policy.md
+  target_aws_service:
+    - Amazon S3 events
     - AWS Lambda
     - AWS Step Functions
-  api:
-    - Amazon API Gateway
-  metadata:
-    - Amazon DynamoDB
-  observability:
+  production_responsibility: Trigger document ingestion and coordinate processing workflows.
+  future_notes: Use EventBridge or S3 notifications to start Step Functions state machines.
+preprocessing:
+  local_component: src/enterprise_rag_platform/preprocessing/text_preprocessor.py
+  local_artifact: data/processed/documents.json
+  target_aws_service:
+    - AWS Lambda
+    - AWS Glue
+    - AWS Step Functions
+  production_responsibility: Normalize extracted text and prepare records for chunking.
+  future_notes: Use Glue or SageMaker Processing for large batch preprocessing.
+chunking:
+  local_component: src/enterprise_rag_platform/preprocessing/document_chunker.py
+  local_artifact: data/processed/document_chunks.json
+  target_aws_service:
+    - AWS Lambda
+    - Amazon SageMaker Processing
+    - AWS Glue
+  production_responsibility: Split normalized documents into retrievable chunks with metadata.
+  future_notes: Tune chunk size and overlap based on retrieval evaluation.
+embeddings:
+  local_component: src/enterprise_rag_platform/embeddings/embedding_model.py
+  local_artifact: data/processed/chunk_embeddings.json
+  target_aws_service:
+    - Amazon Bedrock Titan Embeddings
+    - Amazon Bedrock
+  production_responsibility: Generate semantic vectors for document chunks and queries.
+  future_notes: Keep mock provider for tests and add Bedrock provider behind the same interface.
+vector_search:
+  local_component: src/enterprise_rag_platform/retrieval/vector_store.py
+  local_artifact: data/processed/chunk_embeddings.json
+  target_aws_service:
+    - Amazon OpenSearch Service
+    - Amazon Bedrock Knowledge Bases
+  production_responsibility: Store vectors and run top-k similarity search.
+  future_notes: Use OpenSearch for custom retrieval or Knowledge Bases for managed retrieval.
+generation:
+  local_component: src/enterprise_rag_platform/generation
+  local_artifact: outputs/sample/generated_answer.json
+  target_aws_service:
+    - Amazon Bedrock
+  production_responsibility: Generate grounded answers from prompt and retrieved context.
+  future_notes: Replace mock generator with controlled Bedrock model invocation.
+guardrails:
+  local_component: src/enterprise_rag_platform/guardrails
+  local_artifact: outputs/sample/guardrail_results.json
+  target_aws_service:
+    - Amazon Bedrock Guardrails
+    - AWS Lambda
+  production_responsibility: Enforce safety, refusal, sensitive-data, and citation policies.
+  future_notes: Combine managed guardrails with custom enterprise policy checks.
+evaluation:
+  local_component: src/enterprise_rag_platform/evaluation
+  local_artifact: outputs/sample/evaluation_results.json
+  target_aws_service:
+    - AWS Step Functions
+    - Amazon EventBridge
+    - Amazon Bedrock model evaluation
+  production_responsibility: Run scheduled quality and regression evaluations.
+  future_notes: Store historical evaluation outputs in S3 and alert on regressions.
+monitoring:
+  local_component: src/enterprise_rag_platform/monitoring
+  local_artifact: outputs/sample/dashboard_metrics.json
+  target_aws_service:
     - Amazon CloudWatch
-  security:
+  production_responsibility: Capture logs, metrics, dashboards, alarms, and operational signals.
+  future_notes: Emit retrieval latency, generation latency, guardrail blocks, and evaluation scores.
+reporting:
+  local_component: src/enterprise_rag_platform/reporting
+  local_artifact: reports/sample/monitoring_report.md
+  target_aws_service:
+    - Amazon S3
+    - Amazon QuickSight
+    - Amazon OpenSearch dashboards
+  production_responsibility: Store report artifacts and power stakeholder dashboards.
+  future_notes: Use S3 datasets for QuickSight or OpenSearch dashboard sources.
+api_layer:
+  local_component: CLI runners
+  local_artifact: python -m commands
+  target_aws_service:
+    - Amazon API Gateway
+    - AWS Lambda
+    - Amazon Cognito
+  production_responsibility: Expose authenticated query endpoints.
+  future_notes: Add request validation, throttling, authentication, and schema contracts.
+orchestration:
+  local_component: local runners
+  local_artifact: pipeline scripts and outputs
+  target_aws_service:
+    - AWS Step Functions
+    - Amazon EventBridge
+  production_responsibility: Coordinate ingestion, evaluation, monitoring, and report generation.
+  future_notes: Keep ingestion workflows separate from query-serving path.
+security:
+  local_component: config and guardrails placeholders
+  local_artifact: config/guardrails_config.yaml
+  target_aws_service:
     - AWS IAM
-  document_ai:
-    - Amazon Textract
-  analytics:
-    - Amazon Redshift
-  streaming:
-    - Amazon Kinesis
+    - AWS KMS
+    - AWS Secrets Manager
+    - Amazon CloudWatch
+  production_responsibility: Enforce access control, encryption, secret management, and audit logging.
+  future_notes: Use least privilege, no hardcoded credentials, and separate dev/test/prod environments.

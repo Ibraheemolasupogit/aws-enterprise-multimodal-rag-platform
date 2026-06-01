@@ -43,7 +43,7 @@ flowchart LR
 
 ## AWS Service Mapping
 
-This milestone uses local placeholders only. The future AWS architecture is expected to map platform responsibilities to:
+This repository currently runs locally. The target AWS architecture maps local platform responsibilities to managed services:
 
 | Capability | Candidate AWS Services |
 | --- | --- |
@@ -58,6 +58,17 @@ This milestone uses local placeholders only. The future AWS architecture is expe
 | Document extraction | Amazon Textract |
 | Analytics and reporting | Amazon Redshift |
 | Streaming events | Amazon Kinesis |
+
+| Local layer | Current artifact | Future AWS target |
+| --- | --- | --- |
+| Document storage | `documents/`, `data/processed/` | Amazon S3 |
+| Ingestion orchestration | local runners | AWS Step Functions, AWS Lambda |
+| Text extraction | Markdown/text samples | Amazon Textract |
+| Embeddings | mock embeddings JSON | Amazon Bedrock embeddings |
+| Vector retrieval | local vector store | Amazon OpenSearch Service or Bedrock Knowledge Bases |
+| Generation | mock generator | Amazon Bedrock |
+| Guardrails | deterministic checks | Amazon Bedrock Guardrails plus custom Lambda checks |
+| Monitoring | local JSON/CSV reports | Amazon CloudWatch dashboards and alarms |
 
 ## MVP Scope
 
@@ -119,6 +130,13 @@ Milestone 8 adds monitoring, reporting, and dashboard artifacts:
 - Calculate pipeline health status
 - Generate dashboard-ready metrics as JSON and CSV
 - Produce an executive Markdown monitoring report
+
+Milestone 9 adds AWS architecture mapping and deployment blueprint:
+
+- Map local modules to AWS managed services
+- Document the target production architecture flow
+- Describe security, cost, monitoring, and deployment phases
+- Keep the project as a blueprint only with no AWS deployment
 
 No real LLM answer generation, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
 
@@ -226,6 +244,21 @@ The runner writes `outputs/sample/pipeline_health.json`, `outputs/sample/dashboa
 python -m enterprise_rag_platform.monitoring.monitoring_runner
 ```
 
+## AWS Architecture Mapping and Deployment Blueprint
+
+Milestone 9 translates the local-first platform into a production AWS blueprint. Local modules are mapped to Amazon S3, Amazon Bedrock, Amazon OpenSearch Service, AWS Lambda, Amazon API Gateway, AWS Step Functions, Amazon Textract, Amazon CloudWatch, AWS IAM, AWS KMS, AWS Secrets Manager, and dashboard/reporting services.
+
+The blueprint documents the production architecture flow, deployment phases, security model, cost drivers, and monitoring strategy. No AWS deployment is performed yet, and no Terraform or CDK is included.
+
+Key documents:
+
+- `docs/aws_architecture_blueprint.md`
+- `docs/aws_service_mapping.md`
+- `docs/deployment_blueprint.md`
+- `docs/aws_security_model.md`
+- `docs/aws_cost_and_monitoring.md`
+- `docs/architecture_diagram_ascii.md`
+
 ## Milestones
 
 1. Repository setup and architecture foundation
@@ -236,7 +269,7 @@ python -m enterprise_rag_platform.monitoring.monitoring_runner
 6. RAG evaluation harness
 7. Guardrails and safety checks
 8. Monitoring, reporting, and dashboard artifacts
-9. AWS architecture implementation plan
+9. AWS architecture mapping and deployment blueprint
 10. Optional cloud deployment with secure configuration
 
 ## Definition of Done

@@ -1,0 +1,7 @@
+question_id,evaluation_category,retrieval_hit,citation_valid,keyword_coverage_score,groundedness_score,answer_completeness_score,insufficient_evidence_handled,overall_score,latency_ms
+q001,data_protection,True,True,1.0,0.775,1.0,False,0.9325,1.088
+q002,access_control,True,True,1.0,0.775,1.0,False,0.9325,1.124
+q003,citation_policy,True,True,1.0,0.775,1.0,False,0.9325,1.321
+q004,acceptable_use,True,True,1.0,0.775,1.0,False,0.9325,1.144
+q005,retention_compliance,True,True,1.0,0.775,1.0,False,0.9325,1.118
+q006,insufficient_evidence,False,True,0.0,1.0,0.5,True,0.575,1.096

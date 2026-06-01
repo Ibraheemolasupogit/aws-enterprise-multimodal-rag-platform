@@ -1,3 +1,7 @@
-question,expected_source,notes
-"What controls should production systems enforce?","documents/sample/sample_policy.md","Structure-only sample question"
-"How should AI-generated responses handle source material?","documents/sample/sample_policy.md","Structure-only sample question"
+question_id,question,expected_keywords,expected_source_hint,evaluation_category
+q001,"What does the policy say about data protection and privacy?","sensitive|information|source|material","sample_policy.md","data_protection"
+q002,"What access control expectations are described for production systems?","access|control|least-privilege|audit","sample_policy.md","access_control"
+q003,"How should AI-generated responses handle source material?","cite|source|material|responses","sample_policy.md","citation_policy"
+q004,"What does the policy say about acceptable use of internal knowledge systems?","approved|systems|internal|knowledge","sample_policy.md","acceptable_use"
+q005,"What retention or compliance controls are mentioned?","retention|policies|audit|production","sample_policy.md","retention_compliance"
+q006,"What is the company's office lunch menu for next Friday?","lunch|menu|Friday","none","insufficient_evidence"

@@ -18,6 +18,15 @@ rag_generation_report_path: reports/sample/rag_generation_report.md
 system_instruction: You are a local mock RAG assistant that answers only from retrieved enterprise context.
 max_context_blocks: 3
 answer_style: concise_grounded_summary
+evaluation_questions_path: data/evaluation/sample_questions.csv
+evaluation_results_json_path: outputs/sample/evaluation_results.json
+evaluation_results_csv_path: outputs/sample/evaluation_results.csv
+evaluation_report_path: reports/sample/rag_evaluation_report.md
+evaluation_minimum_overall_score: 0.6
+evaluation_keyword_weight: 0.35
+evaluation_groundedness_weight: 0.3
+evaluation_citation_weight: 0.2
+evaluation_completeness_weight: 0.15
 
 retrieval:
   strategy: local_vector_placeholder
@@ -34,3 +43,7 @@ generation:
   mode: mock_local_generation
   answer_style: concise_grounded_summary
   max_context_blocks: 3
+
+evaluation:
+  scoring_mode: deterministic_local_rules
+  minimum_overall_score: 0.6

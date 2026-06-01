@@ -99,6 +99,13 @@ Milestone 5 adds grounded response preparation and mock RAG generation:
 - Validate that answer citations come from retrieved context
 - Save prompt, answer, and generation report artifacts
 
+Milestone 6 adds a local RAG evaluation harness:
+
+- Load sample evaluation questions from CSV
+- Score retrieval, citations, groundedness, completeness, and insufficient-evidence handling
+- Save evaluation outputs as JSON, CSV, and Markdown reports
+- Use deterministic local scoring rules instead of LLM-as-a-judge
+
 No real LLM answer generation, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
 
 ## Future Scope
@@ -173,6 +180,16 @@ python -m enterprise_rag_platform.generation.rag_runner
 python -m enterprise_rag_platform.generation.rag_runner "What does the policy say about data protection?"
 ```
 
+## RAG Evaluation Harness
+
+Milestone 6 evaluates the local RAG pipeline using sample questions from `data/evaluation/sample_questions.csv`. The harness scores retrieval hits, keyword coverage, citation validity, approximate groundedness, answer completeness, insufficient-evidence handling, and simple runtime metadata.
+
+Evaluation outputs are written to `outputs/sample/evaluation_results.json`, `outputs/sample/evaluation_results.csv`, and `reports/sample/rag_evaluation_report.md`. No LLM-as-judge or Bedrock evaluation is used yet.
+
+```bash
+python -m enterprise_rag_platform.evaluation.evaluation_runner
+```
+
 ## Milestones
 
 1. Repository setup and architecture foundation
@@ -180,7 +197,7 @@ python -m enterprise_rag_platform.generation.rag_runner "What does the policy sa
 3. Embeddings and local vector store placeholder
 4. Retrieval orchestration and citation-ready context builder
 5. Grounded response preparation and mock RAG generation
-6. Evaluation and benchmarking harness
+6. RAG evaluation harness
 7. Guardrails and citation validation
 8. Reporting and dashboard prototypes
 9. AWS architecture implementation plan

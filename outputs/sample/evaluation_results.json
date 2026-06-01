@@ -1,0 +1,210 @@
+{
+  "evaluation_metadata": {
+    "question_count": 6,
+    "minimum_overall_score": 0.6,
+    "average_overall_score": 0.8729
+  },
+  "results": [
+    {
+      "question_id": "q001",
+      "question": "What does the policy say about data protection and privacy?",
+      "evaluation_category": "data_protection",
+      "expected_keywords": [
+        "sensitive",
+        "information",
+        "source",
+        "material"
+      ],
+      "expected_source_hint": "sample_policy.md",
+      "retrieval_hit": true,
+      "context_count": 1,
+      "citation_valid": true,
+      "keyword_coverage_score": 1.0,
+      "groundedness_score": 0.775,
+      "answer_completeness_score": 1.0,
+      "insufficient_evidence_handled": false,
+      "overall_score": 0.9325,
+      "latency_ms": 1.088,
+      "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+      "used_citations": [
+        "[sample_policy.md | sample_policy_chunk_0000]"
+      ],
+      "citation_validation": {
+        "is_valid": true,
+        "missing_citations": [],
+        "unsupported_citations": [],
+        "citation_count": 1,
+        "notes": [
+          "All used citations are supported by retrieved context."
+        ]
+      }
+    },
+    {
+      "question_id": "q002",
+      "question": "What access control expectations are described for production systems?",
+      "evaluation_category": "access_control",
+      "expected_keywords": [
+        "access",
+        "control",
+        "least-privilege",
+        "audit"
+      ],
+      "expected_source_hint": "sample_policy.md",
+      "retrieval_hit": true,
+      "context_count": 1,
+      "citation_valid": true,
+      "keyword_coverage_score": 1.0,
+      "groundedness_score": 0.775,
+      "answer_completeness_score": 1.0,
+      "insufficient_evidence_handled": false,
+      "overall_score": 0.9325,
+      "latency_ms": 1.124,
+      "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+      "used_citations": [
+        "[sample_policy.md | sample_policy_chunk_0000]"
+      ],
+      "citation_validation": {
+        "is_valid": true,
+        "missing_citations": [],
+        "unsupported_citations": [],
+        "citation_count": 1,
+        "notes": [
+          "All used citations are supported by retrieved context."
+        ]
+      }
+    },
+    {
+      "question_id": "q003",
+      "question": "How should AI-generated responses handle source material?",
+      "evaluation_category": "citation_policy",
+      "expected_keywords": [
+        "cite",
+        "source",
+        "material",
+        "responses"
+      ],
+      "expected_source_hint": "sample_policy.md",
+      "retrieval_hit": true,
+      "context_count": 1,
+      "citation_valid": true,
+      "keyword_coverage_score": 1.0,
+      "groundedness_score": 0.775,
+      "answer_completeness_score": 1.0,
+      "insufficient_evidence_handled": false,
+      "overall_score": 0.9325,
+      "latency_ms": 1.321,
+      "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+      "used_citations": [
+        "[sample_policy.md | sample_policy_chunk_0000]"
+      ],
+      "citation_validation": {
+        "is_valid": true,
+        "missing_citations": [],
+        "unsupported_citations": [],
+        "citation_count": 1,
+        "notes": [
+          "All used citations are supported by retrieved context."
+        ]
+      }
+    },
+    {
+      "question_id": "q004",
+      "question": "What does the policy say about acceptable use of internal knowledge systems?",
+      "evaluation_category": "acceptable_use",
+      "expected_keywords": [
+        "approved",
+        "systems",
+        "internal",
+        "knowledge"
+      ],
+      "expected_source_hint": "sample_policy.md",
+      "retrieval_hit": true,
+      "context_count": 1,
+      "citation_valid": true,
+      "keyword_coverage_score": 1.0,
+      "groundedness_score": 0.775,
+      "answer_completeness_score": 1.0,
+      "insufficient_evidence_handled": false,
+      "overall_score": 0.9325,
+      "latency_ms": 1.144,
+      "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+      "used_citations": [
+        "[sample_policy.md | sample_policy_chunk_0000]"
+      ],
+      "citation_validation": {
+        "is_valid": true,
+        "missing_citations": [],
+        "unsupported_citations": [],
+        "citation_count": 1,
+        "notes": [
+          "All used citations are supported by retrieved context."
+        ]
+      }
+    },
+    {
+      "question_id": "q005",
+      "question": "What retention or compliance controls are mentioned?",
+      "evaluation_category": "retention_compliance",
+      "expected_keywords": [
+        "retention",
+        "policies",
+        "audit",
+        "production"
+      ],
+      "expected_source_hint": "sample_policy.md",
+      "retrieval_hit": true,
+      "context_count": 1,
+      "citation_valid": true,
+      "keyword_coverage_score": 1.0,
+      "groundedness_score": 0.775,
+      "answer_completeness_score": 1.0,
+      "insufficient_evidence_handled": false,
+      "overall_score": 0.9325,
+      "latency_ms": 1.118,
+      "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+      "used_citations": [
+        "[sample_policy.md | sample_policy_chunk_0000]"
+      ],
+      "citation_validation": {
+        "is_valid": true,
+        "missing_citations": [],
+        "unsupported_citations": [],
+        "citation_count": 1,
+        "notes": [
+          "All used citations are supported by retrieved context."
+        ]
+      }
+    },
+    {
+      "question_id": "q006",
+      "question": "What is the company's office lunch menu for next Friday?",
+      "evaluation_category": "insufficient_evidence",
+      "expected_keywords": [
+        "lunch",
+        "menu",
+        "friday"
+      ],
+      "expected_source_hint": "none",
+      "retrieval_hit": false,
+      "context_count": 0,
+      "citation_valid": true,
+      "keyword_coverage_score": 0.0,
+      "groundedness_score": 1.0,
+      "answer_completeness_score": 0.5,
+      "insufficient_evidence_handled": true,
+      "overall_score": 0.575,
+      "latency_ms": 1.096,
+      "answer_text": "Insufficient evidence: no retrieved context was available to answer the question.",
+      "used_citations": [],
+      "citation_validation": {
+        "is_valid": true,
+        "missing_citations": [],
+        "unsupported_citations": [],
+        "citation_count": 0,
+        "notes": [
+          "No retrieved context citations were available."
+        ]
+      }
+    }
+  ]
+}

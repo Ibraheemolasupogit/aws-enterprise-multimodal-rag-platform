@@ -37,3 +37,4 @@ outputs/*
 reports/*
 !reports/sample/
 !reports/sample/.gitkeep
+!reports/document_ingestion_report.md

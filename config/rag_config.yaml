@@ -1,10 +1,15 @@
-# Local-first RAG configuration placeholder.
+# Local-first RAG configuration.
+input_document_dir: documents/sample
+processed_output_dir: data/processed
+chunk_size_words: 120
+chunk_overlap_words: 20
+
 retrieval:
   strategy: hybrid_placeholder
   top_k: 5
   enable_citations: true
 
 chunking:
-  strategy: recursive_text_placeholder
-  chunk_size_tokens: 800
-  chunk_overlap_tokens: 120
+  strategy: local_word_chunking
+  chunk_size_words: 120
+  chunk_overlap_words: 20

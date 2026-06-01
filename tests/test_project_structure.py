@@ -11,6 +11,7 @@ def test_required_directories_exist():
         "documents/sample",
         "data/knowledge_base",
         "data/evaluation",
+        "data/processed",
         "data/sample",
         "prompts/system_prompts",
         "prompts/rag_prompts",
@@ -22,6 +23,7 @@ def test_required_directories_exist():
         "docs",
         "tests",
         "src/enterprise_rag_platform",
+        "src/enterprise_rag_platform/preprocessing",
     ]
 
     missing = [path for path in required_directories if not (ROOT / path).is_dir()]
@@ -59,6 +61,7 @@ def test_required_package_files_exist():
         "monitoring",
         "reporting",
         "utils",
+        "preprocessing",
     ]
 
     assert (package_root / "__init__.py").is_file()

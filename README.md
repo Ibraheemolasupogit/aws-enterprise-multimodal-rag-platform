@@ -61,7 +61,7 @@ This milestone uses local placeholders only. The future AWS architecture is expe
 
 ## MVP Scope
 
-Milestone 1 establishes the repository foundation only:
+Milestone 1 establishes the repository foundation:
 
 - Project structure and Python package skeleton
 - Configuration placeholders
@@ -70,7 +70,15 @@ Milestone 1 establishes the repository foundation only:
 - GitHub Actions CI placeholder
 - Structure tests to protect the initial architecture
 
-No RAG logic, cloud integration, paid services, secrets, credentials, or real model calls are implemented in this milestone.
+Milestone 2 adds local document ingestion and preprocessing:
+
+- Load local sample Markdown and plain text enterprise documents
+- Create structured document records with source metadata and counts
+- Normalize text while preserving useful headings
+- Split clean text into configurable overlapping chunks
+- Save local processed outputs for future RAG, evaluation, guardrails, and agent workflows
+
+No embeddings, retrieval, agents, cloud integration, paid services, secrets, credentials, or real model calls are implemented in these milestones.
 
 ## Future Scope
 
@@ -100,6 +108,16 @@ No RAG logic, cloud integration, paid services, secrets, credentials, or real mo
 ├── src/enterprise_rag_platform/    # Python package skeleton
 └── tests/                          # Automated tests
 ```
+
+## Document Ingestion and Preprocessing
+
+Milestone 2 creates clean, structured document records and chunks from local sample enterprise documents. Run the local pipeline with:
+
+```bash
+python -m enterprise_rag_platform.ingestion.ingestion_runner
+```
+
+The pipeline reads from `documents/sample/`, writes processed records to `data/processed/documents.json`, writes chunks to `data/processed/document_chunks.json`, and creates `reports/document_ingestion_report.md`.
 
 ## Milestones
 

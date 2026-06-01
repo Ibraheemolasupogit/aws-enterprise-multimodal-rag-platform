@@ -1,0 +1,10 @@
+# Evaluation configuration placeholder.
+evaluation:
+  datasets:
+    - data/evaluation/sample_questions.csv
+  metrics:
+    - retrieval_relevance
+    - answer_groundedness
+    - citation_coverage
+    - latency
+    - safety

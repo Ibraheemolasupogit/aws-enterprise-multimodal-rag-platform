@@ -1,0 +1,3 @@
+question,expected_source,notes
+"What controls should production systems enforce?","documents/sample/sample_policy.md","Structure-only sample question"
+"How should AI-generated responses handle source material?","documents/sample/sample_policy.md","Structure-only sample question"

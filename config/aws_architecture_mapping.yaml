@@ -1,0 +1,26 @@
+# Planned AWS service mapping. This file is documentation-only for Milestone 1.
+services:
+  model_hosting:
+    - Amazon Bedrock
+    - Amazon SageMaker
+  storage:
+    - Amazon S3
+  retrieval:
+    - Amazon OpenSearch Service
+  orchestration:
+    - AWS Lambda
+    - AWS Step Functions
+  api:
+    - Amazon API Gateway
+  metadata:
+    - Amazon DynamoDB
+  observability:
+    - Amazon CloudWatch
+  security:
+    - AWS IAM
+  document_ai:
+    - Amazon Textract
+  analytics:
+    - Amazon Redshift
+  streaming:
+    - Amazon Kinesis

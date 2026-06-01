@@ -1,0 +1,10 @@
+# Local-first RAG configuration placeholder.
+retrieval:
+  strategy: hybrid_placeholder
+  top_k: 5
+  enable_citations: true
+
+chunking:
+  strategy: recursive_text_placeholder
+  chunk_size_tokens: 800
+  chunk_overlap_tokens: 120

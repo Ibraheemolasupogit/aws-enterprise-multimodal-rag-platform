@@ -1,0 +1,6 @@
+# Guardrails configuration placeholder.
+guardrails:
+  pii_detection: placeholder
+  unsafe_content_policy: placeholder
+  citation_required: true
+  refusal_policy: placeholder

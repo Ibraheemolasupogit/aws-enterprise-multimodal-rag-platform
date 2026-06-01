@@ -1,0 +1,7 @@
+# Local-first model configuration placeholder.
+models:
+  generation_provider: mock
+  embedding_provider: mock
+  aws_target_services:
+    - Amazon Bedrock
+    - Amazon SageMaker

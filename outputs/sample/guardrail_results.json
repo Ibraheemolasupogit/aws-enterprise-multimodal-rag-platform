@@ -1,0 +1,92 @@
+{
+  "query": {
+    "query_id": "query_2b516f5bb2636222",
+    "raw_query": "What does the policy say about data protection?",
+    "normalized_query": "What does the policy say about data protection?",
+    "character_count": 47,
+    "word_count": 8
+  },
+  "query_guardrail": {
+    "is_allowed": true,
+    "risk_level": "low",
+    "triggered_rules": [],
+    "safe_query": "What does the policy say about data protection?",
+    "refusal_reason": null,
+    "notes": [
+      "Query passed local deterministic guardrail checks."
+    ]
+  },
+  "retrieval_response": {
+    "query": {
+      "query_id": "query_2b516f5bb2636222",
+      "raw_query": "What does the policy say about data protection?",
+      "normalized_query": "What does the policy say about data protection?",
+      "character_count": 47,
+      "word_count": 8
+    },
+    "retrieval_parameters": {
+      "top_k": 3,
+      "minimum_similarity_score": -1.0,
+      "embedding_dimension": 32
+    },
+    "contexts": [
+      {
+        "context_id": "query_2b516f5bb2636222_context_0001",
+        "query_id": "query_2b516f5bb2636222",
+        "rank": 1,
+        "document_id": "sample_policy",
+        "chunk_id": "sample_policy_chunk_0000",
+        "source_file": "sample_policy.md",
+        "chunk_index": 0,
+        "text": "Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit logging, and data retention policies. AI Usage AI-generated responses should cite source material where possible, avoid exposing sensitive information, and route uncertain or high-risk cases for human review.",
+        "similarity_score": 0.02561779,
+        "citation_label": "[sample_policy.md | sample_policy_chunk_0000]",
+        "citation_metadata": {
+          "document_id": "sample_policy",
+          "chunk_id": "sample_policy_chunk_0000",
+          "source_file": "sample_policy.md",
+          "rank": 1,
+          "similarity_score": 0.02561779
+        }
+      }
+    ],
+    "result_count": 1,
+    "no_result_reason": null
+  },
+  "answer": {
+    "answer_id": "answer_661fb8dcb1aba341",
+    "query_id": "query_2b516f5bb2636222",
+    "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+    "used_citations": [
+      "[sample_policy.md | sample_policy_chunk_0000]"
+    ],
+    "generation_mode": "mock_local_generation",
+    "limitations": [
+      "This is deterministic local mock generation.",
+      "The response summarizes retrieved text and is not produced by an LLM.",
+      "No external model, paid API, or AWS service was called."
+    ]
+  },
+  "citation_validation": {
+    "is_valid": true,
+    "missing_citations": [],
+    "unsupported_citations": [],
+    "citation_count": 1,
+    "notes": [
+      "All used citations are supported by retrieved context."
+    ]
+  },
+  "answer_guardrail": {
+    "is_allowed": true,
+    "risk_level": "low",
+    "triggered_rules": [],
+    "final_answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
+    "notes": [
+      "Answer passed local deterministic guardrail checks."
+    ]
+  },
+  "final_response": {
+    "is_allowed": true,
+    "final_answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]"
+  }
+}

@@ -1,6 +1,24 @@
-# Guardrails configuration placeholder.
+# Local deterministic guardrails configuration.
 guardrails:
-  pii_detection: placeholder
-  unsafe_content_policy: placeholder
+  blocked_query_patterns:
+    - "(api key|api_key|secret key|password|credential|token)"
+    - "(delete production|disable logging|bypass security|exfiltrate)"
+  sensitive_data_patterns:
+    - "(ssn|social security number|credit card|passport|date of birth)"
+    - "(customer pii|personal data|private employee data)"
+  prompt_injection_patterns:
+    - "(ignore previous instructions|ignore all instructions)"
+    - "(reveal the system prompt|show me the system prompt)"
+    - "(developer message|hidden instructions)"
+  out_of_scope_patterns:
+    - "(lunch menu|weather|sports score|stock price)"
+  unsafe_answer_patterns:
+    - "(exfiltrate|bypass security|disable logging)"
+  minimum_query_words: 3
+  allow_insufficient_evidence_response: true
+  require_citations_when_context_exists: true
+  hallucination_risk_on_invalid_citations: true
+  pii_detection: deterministic_placeholder
+  unsafe_content_policy: deterministic_placeholder
   citation_required: true
-  refusal_policy: placeholder
+  refusal_policy: local_guarded_refusal

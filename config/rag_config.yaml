@@ -27,6 +27,8 @@ evaluation_keyword_weight: 0.35
 evaluation_groundedness_weight: 0.3
 evaluation_citation_weight: 0.2
 evaluation_completeness_weight: 0.15
+guardrail_results_output_path: outputs/sample/guardrail_results.json
+guardrail_report_path: reports/sample/guardrail_report.md
 
 retrieval:
   strategy: local_vector_placeholder

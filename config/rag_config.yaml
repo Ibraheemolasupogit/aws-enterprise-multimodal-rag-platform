@@ -29,6 +29,10 @@ evaluation_citation_weight: 0.2
 evaluation_completeness_weight: 0.15
 guardrail_results_output_path: outputs/sample/guardrail_results.json
 guardrail_report_path: reports/sample/guardrail_report.md
+pipeline_health_output_path: outputs/sample/pipeline_health.json
+dashboard_metrics_json_path: outputs/sample/dashboard_metrics.json
+dashboard_metrics_csv_path: outputs/sample/dashboard_metrics.csv
+monitoring_report_path: reports/sample/monitoring_report.md
 
 retrieval:
   strategy: local_vector_placeholder

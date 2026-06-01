@@ -41,6 +41,9 @@ outputs/*
 !outputs/sample/evaluation_results.json
 !outputs/sample/evaluation_results.csv
 !outputs/sample/guardrail_results.json
+!outputs/sample/pipeline_health.json
+!outputs/sample/dashboard_metrics.json
+!outputs/sample/dashboard_metrics.csv
 reports/*
 !reports/sample/
 !reports/sample/.gitkeep
@@ -49,4 +52,5 @@ reports/*
 !reports/sample/rag_generation_report.md
 !reports/sample/rag_evaluation_report.md
 !reports/sample/guardrail_report.md
+!reports/sample/monitoring_report.md
 !reports/document_ingestion_report.md

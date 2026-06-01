@@ -1,0 +1,18 @@
+{
+  "documents_available": true,
+  "chunks_available": true,
+  "embeddings_available": true,
+  "retrieval_context_available": true,
+  "generated_answer_available": true,
+  "evaluation_results_available": true,
+  "guardrail_results_available": true,
+  "total_documents": 1,
+  "total_chunks": 1,
+  "total_embeddings": 1,
+  "evaluation_question_count": 6,
+  "average_overall_score": 0.8729,
+  "guardrail_allowed": true,
+  "guardrail_risk_level": "low",
+  "missing_artifacts": [],
+  "pipeline_health_status": "healthy"
+}

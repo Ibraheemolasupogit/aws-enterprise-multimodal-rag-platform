@@ -8,16 +8,13 @@ The project is not deployed to AWS yet. It does not call Amazon Bedrock, OpenSea
 
 ## Portfolio Positioning
 
-Built to demonstrate practical skills for:
+This project demonstrates AWS-oriented enterprise RAG architecture and GenAI system design using a local-first implementation. It covers retrieval, citations, guardrails, grounded mock generation, deterministic evaluation, and monitoring in a way that mirrors production LLMOps concerns without requiring cloud access.
 
-- AWS GenAI Engineer
-- AI Engineer
-- LLMOps Engineer
-- Data Scientist
-- Applied Scientist
-- Machine Learning Engineer
-- Enterprise RAG Engineer
-- Multimodal AI Engineer
+The design emphasizes responsible AI and governance-aware engineering: source traceability, citation validation, insufficient-evidence handling, safety checks, evaluation metrics, and observability artifacts are part of the core pipeline rather than afterthoughts.
+
+The architecture is relevant to Data Scientist, AI Engineer, GenAI Engineer, and ML Engineer roles because it connects model-quality thinking with practical system boundaries, AWS service mapping, and production-readiness trade-offs.
+
+For a deeper explanation of architecture decisions, trade-offs, and role alignment, see [docs/interview_talking_points.md](docs/interview_talking_points.md).
 
 ## Problem Statement
 
@@ -202,7 +199,7 @@ It reports pipeline health, retrieval metrics, generation metrics, evaluation av
 - [Security model](docs/aws_security_model.md)
 - [Cost and monitoring model](docs/aws_cost_and_monitoring.md)
 - [Project roadmap](docs/project_roadmap.md)
-- [Interview talking points](docs/interview_talking_points.md)
+- [Architecture decisions and role-alignment notes](docs/interview_talking_points.md)
 - [Repository review checklist](docs/repository_review_checklist.md)
 
 ## Limitations
@@ -225,16 +222,9 @@ It reports pipeline health, retrieval metrics, generation metrics, evaluation av
 - Add A/B testing, recommender-system, knowledge graph, and agentic workflow layers
 - Add multimodal extraction using Textract and future multimodal Bedrock models
 
-## Interview Talking Points
-
-- Designed a modular enterprise RAG architecture from ingestion through monitoring
-- Built deterministic local substitutes for embeddings, retrieval, generation, guardrails, and evaluation
-- Preserved citation metadata throughout retrieval and generation
-- Added evaluation and monitoring artifacts for LLMOps-style quality tracking
-- Created a deployment blueprint mapping local components to AWS managed services
-- Explicitly separated local MVP behavior from future AWS production claims
-
 ## GitHub Topic Suggestions
+
+Suggested repository metadata topics:
 
 `aws`, `bedrock`, `generative-ai`, `rag`, `llmops`, `ai-engineering`, `vector-search`, `opensearch`, `embeddings`, `prompt-engineering`, `guardrails`, `llm-evaluation`, `agentic-ai`, `multimodal-ai`, `lambda`, `s3`, `cloudwatch`, `dynamodb`, `python`
 

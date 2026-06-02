@@ -1,6 +1,6 @@
 # Guardrail Report
 
-Generated at: 2026-06-01 12:02:42 UTC
+Generated at: 2026-06-02 06:19:53 UTC
 
 ## Query Guardrail
 

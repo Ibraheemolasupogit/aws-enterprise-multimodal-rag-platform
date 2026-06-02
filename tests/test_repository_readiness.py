@@ -21,6 +21,8 @@ def test_readme_mentions_core_project_themes():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
     for phrase in [
+        "Portfolio Positioning",
+        "docs/interview_talking_points.md",
         "local-first",
         "AWS Target Architecture",
         "evaluation",

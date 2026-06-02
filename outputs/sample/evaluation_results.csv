@@ -1,7 +1,7 @@
 question_id,evaluation_category,retrieval_hit,citation_valid,keyword_coverage_score,groundedness_score,answer_completeness_score,insufficient_evidence_handled,overall_score,latency_ms
-q001,data_protection,True,True,1.0,0.775,1.0,False,0.9325,1.093
-q002,access_control,True,True,1.0,0.775,1.0,False,0.9325,1.17
-q003,citation_policy,True,True,1.0,0.775,1.0,False,0.9325,1.149
-q004,acceptable_use,True,True,1.0,0.775,1.0,False,0.9325,1.223
-q005,retention_compliance,True,True,1.0,0.775,1.0,False,0.9325,1.175
-q006,insufficient_evidence,False,True,0.0,1.0,0.5,True,0.575,1.149
+q001,data_protection,True,True,1.0,0.775,1.0,False,0.9325,1.24
+q002,access_control,True,True,1.0,0.775,1.0,False,0.9325,1.24
+q003,citation_policy,True,True,1.0,0.775,1.0,False,0.9325,1.224
+q004,acceptable_use,True,True,1.0,0.775,1.0,False,0.9325,1.185
+q005,retention_compliance,True,True,1.0,0.775,1.0,False,0.9325,1.185
+q006,insufficient_evidence,False,True,0.0,1.0,0.5,True,0.575,1.228

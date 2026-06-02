@@ -222,12 +222,6 @@ It reports pipeline health, retrieval metrics, generation metrics, evaluation av
 - Add A/B testing, recommender-system, knowledge graph, and agentic workflow layers
 - Add multimodal extraction using Textract and future multimodal Bedrock models
 
-## GitHub Topic Suggestions
-
-Suggested repository metadata topics:
-
-`aws`, `bedrock`, `generative-ai`, `rag`, `llmops`, `ai-engineering`, `vector-search`, `opensearch`, `embeddings`, `prompt-engineering`, `guardrails`, `llm-evaluation`, `agentic-ai`, `multimodal-ai`, `lambda`, `s3`, `cloudwatch`, `dynamodb`, `python`
-
 ## Disclaimer
 
 This repository is local-first and not deployed to AWS. It uses mock components and placeholder architecture mappings only. It does not use paid services, external LLM APIs, Amazon Bedrock calls, real credentials, production data, or cloud infrastructure. Secrets and credentials must never be committed.

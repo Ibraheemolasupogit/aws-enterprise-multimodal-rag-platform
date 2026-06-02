@@ -24,7 +24,7 @@
       "answer_completeness_score": 1.0,
       "insufficient_evidence_handled": false,
       "overall_score": 0.9325,
-      "latency_ms": 1.093,
+      "latency_ms": 1.24,
       "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
       "used_citations": [
         "[sample_policy.md | sample_policy_chunk_0000]"
@@ -58,7 +58,7 @@
       "answer_completeness_score": 1.0,
       "insufficient_evidence_handled": false,
       "overall_score": 0.9325,
-      "latency_ms": 1.17,
+      "latency_ms": 1.24,
       "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
       "used_citations": [
         "[sample_policy.md | sample_policy_chunk_0000]"
@@ -92,7 +92,7 @@
       "answer_completeness_score": 1.0,
       "insufficient_evidence_handled": false,
       "overall_score": 0.9325,
-      "latency_ms": 1.149,
+      "latency_ms": 1.224,
       "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
       "used_citations": [
         "[sample_policy.md | sample_policy_chunk_0000]"
@@ -126,7 +126,7 @@
       "answer_completeness_score": 1.0,
       "insufficient_evidence_handled": false,
       "overall_score": 0.9325,
-      "latency_ms": 1.223,
+      "latency_ms": 1.185,
       "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
       "used_citations": [
         "[sample_policy.md | sample_policy_chunk_0000]"
@@ -160,7 +160,7 @@
       "answer_completeness_score": 1.0,
       "insufficient_evidence_handled": false,
       "overall_score": 0.9325,
-      "latency_ms": 1.175,
+      "latency_ms": 1.185,
       "answer_text": "Based on the retrieved policy context, Sample Enterprise Policy This mock policy document is provided for local development and testing only. Access Control Employees should use approved systems for handling internal knowledge and customer-facing responses. Production systems must enforce least-privilege access, audit... [sample_policy.md | sample_policy_chunk_0000]",
       "used_citations": [
         "[sample_policy.md | sample_policy_chunk_0000]"
@@ -193,7 +193,7 @@
       "answer_completeness_score": 0.5,
       "insufficient_evidence_handled": true,
       "overall_score": 0.575,
-      "latency_ms": 1.149,
+      "latency_ms": 1.228,
       "answer_text": "Insufficient evidence: no retrieved context was available to answer the question.",
       "used_citations": [],
       "citation_validation": {
